@@ -2,9 +2,15 @@
 This repository contains an implementation of a Variational Autoencoder (VAE) using PyTorch. The model is trained on the Olivetti Faces dataset from sklearn, which consists of grayscale facial images.
 
 ## Project Structure
-- **vae.py**: Contains the VAE model and training script.
-- **README.txt**: Project description and instructions.
-- **requirements.txt**: Dependencies required for the project.
+
+- **main.py**              *The main script to train and test the VAE*
+- **model.py**             *Defines the Variational Autoencoder architecture*
+- **utils.py**             *Helper functions*
+- **requirements.txt**     *Dependencies*
+- **README.md**            *Explanation and usage*
+- **outputs/**             *Stores generated images*
+- **dataset/**             *Any dataset-related files if needed*
+
 
 ## Installation
 To run this project, install the required dependencies:
