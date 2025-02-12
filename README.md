@@ -11,6 +11,11 @@ This repository contains an implementation of a Variational Autoencoder (VAE) us
 - **outputs/**             *Stores generated images*
 - **dataset/**             *Any dataset-related files if needed*
 
+## Features
+- Implements a **simple encoder-decoder architecture**.
+- Uses the **Reparameterization Trick** to sample from the latent space.
+- Trains using **Binary Cross Entropy (BCE) loss** and **KL divergence**.
+- Generates new handwritten digits after training.
 
 ## Installation
 To run this project, install the required dependencies:
