@@ -1,41 +1,29 @@
-# Variational Autoencoder (VAE) with Olivetti Faces Dataset
-This repository contains an implementation of a Variational Autoencoder (VAE) using PyTorch. The model is trained on the Olivetti Faces dataset from sklearn, which consists of grayscale facial images.
+# LLM Classification Finetuning
+Finetune LLMs to Predict Human Preference using Chatbot Arena conversations
 
-## Project Structure
 
-- **main.py**              *The main script to train and test the VAE*
-- **model.py**             *Defines the Variational Autoencoder architecture*
-- **utils.py**             *Helper functions*
-- **requirements.txt**     *Dependencies*
-- **README.md**            *Explanation and usage*
-- **outputs/**             *Stores generated images*
-- **dataset/**             *Any dataset-related files if needed*
 
-## Features
-- Implements a **simple encoder-decoder architecture**.
-- Uses the **Reparameterization Trick** to sample from the latent space.
-- Trains using **Binary Cross Entropy (BCE) loss** and **KL divergence**.
-- Generates new handwritten digits after training.
+## Dataset Description
+The dataset consists of user interactions from the ChatBot Arena. In each user interaction a judge provides one or more prompts to two different large language models, and then indicates which of the models gave the more satisfactory response. The goal of the competition is to predict the preferences of the judges and determine the likelihood that a given prompt/response pair is selected as the winner.
 
-## Installation
-To run this project, install the required dependencies:
+## Files
+**train.csv**
 
-`pip install torch torchvision numpy scikit-learn matplotlib`
+- `id` - A unique identifier for the row.
+- `model_[a/b]` - The identity of model_[a/b]. Included in train.csv but not test.csv.
+- `prompt` - The prompt that was given as an input (to both models).
+- `response_[a/b]` - The response from model_[a/b] to the given prompt.
+- `winner_model_[a/b/tie]` - Binary columns marking the judge's selection. The ground truth target column.
 
-## Running the Model
-To train the VAE model, execute:
+**test.csv**
 
-`python vae.py`
+- `id`
+- `prompt`
+- `response_[a/b]`
 
-## Explanation
-The VAE consists of:
-- **Encoder**: Extracts features from input images and maps them to a latent space.
-- **Reparameterization Trick**: Ensures backpropagation through a probabilistic sampling step.
-- **Decoder**: Reconstructs images from the latent representation.
-- **Loss Function**: Combination of Mean Squared Error (MSE) for reconstruction and KL-Divergence for latent space regularization.
+**sample_submission.csv** A submission file in the correct format.
 
-## Output
-The model outputs reconstructed images, comparing original and generated images.
+- `id`
+- `winner_model_[a/b/tie]` - This is what is predicted from the test set.
 
-## Example Output
-The following figure demonstrates the input (top row) and corresponding reconstructed images (bottom row):
+*Note: the dataset for this competition contains text that may be considered profane, vulgar, or offensive.*
